@@ -1,0 +1,60 @@
+{% load static %}
+{% load markdown_extras %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources List</title>
+    <meta
+      name="description"
+      content="An example resource sharing app for Django and JavaScript."
+    />
+    <meta name="author" content="Shawn Girard" />
+    <!-- app CSS -->
+    <link rel="stylesheet" href="{% static 'resources/css/resources.css' %}" />
+    <!-- app JS -->
+    <script src="{% static 'resources/js/resources.js' %}" defer></script>
+  </head>
+  <body id="top" class="page">
+
+    <main class="resources-container">
+
+        <nav class="category-container">
+            <h3>Resource Categories</h3>
+            <ul>
+                <li {% if not category %}class="selected"{% endif %}>
+                    <a href="{% url 'resources:resources' %}">All</a>
+                </li>
+                {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.category }}</a>
+                </li>
+                {% endfor %}
+            </ul>            
+        </nav>
+
+        <div class="resource-container">
+
+            <header class="resource-header">
+                <h1>{% if category %}{{ category.category }}{% else %}Useful Resources{% endif %}</h1>
+            </header>
+
+            <article class="resource-item">
+                {% if resources %} {% for resource in resources %}
+                  <div class="resource">
+                    {{ resource.name }}
+                  </div>
+                  <div class="description">{{ resource.description|markdown|linebreaks }}</div>
+                {% endfor %} {% else %}
+                <div class="no-resources">There are currently no resources.</div>
+                {% endif %}
+            </article>            
+
+        </div>
+
+    </main>
+
+  </body>
+
+</html>
