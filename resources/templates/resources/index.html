@@ -35,11 +35,12 @@
         </nav>
 
         <div class="resource-container">
-
+          
+          {% if category %}
+          <!-- category filter passed | list that category -->
             <header class="resource-header">
-                <h1>{% if category %}{{ category.category }}{% else %}Useful Resources{% endif %}</h1>
+                <h1>{{ category.category }} Resources</h1>
             </header>
-
             <article class="resource-item">
                 {% if resources %} {% for resource in resources %}
                   <div class="resource">
@@ -51,7 +52,40 @@
                 {% endfor %} {% else %}
                 <div class="no-resources">There are currently no resources.</div>
                 {% endif %}
-            </article>            
+            </article>
+            <!-- no category passed | list by category -->
+            {% else %}
+            <header class="resource-header">
+              <h1>Useful Resources</h1>
+            </header>
+              {% if resource_list %}
+                {% for key, value in resource_list.items %}
+                  <!-- get the category and list it-->
+                  <div class="resource-category-header">
+                    <h2>{{ key }} Resources:</h2>
+                  </div>
+                  {% for r in value %}
+                  <article class="resource-item">
+                      <div class="resource">
+                        <a href="{{ r.location }}" target="_blank">
+                          {{ r.name }}
+                        </a>
+                      </div>
+                      <div class="description">{{ r.description|markdown|linebreaks }}</div>
+                  </article>
+                  {% endfor %}
+                {% endfor %}
+              {% else %}
+                <div class="no-resources">
+                  There are currently no resources.
+                </div>
+              {% endif %}
+
+
+
+
+
+            {% endif %}            
 
         </div>
 
