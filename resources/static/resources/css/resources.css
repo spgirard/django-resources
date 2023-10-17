@@ -58,7 +58,7 @@ a {
   margin: 0;
   flex: 0;
   background-color: var(--category-bg);
-  min-width: 12.5rem;
+  min-width: 14rem;
 }
 
 .category-container h3 {
@@ -85,7 +85,7 @@ a {
   border-radius: 0.5rem 0 0 0.5rem;
 }
 
-/* QUESTIONS & ANSWERS */
+/* RESOURCES */
 
 .resource-container {
   flex: 1 1 auto;

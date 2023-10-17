@@ -43,7 +43,9 @@
             <article class="resource-item">
                 {% if resources %} {% for resource in resources %}
                   <div class="resource">
-                    {{ resource.name }}
+                    <a href="{{ resource.location }}" target="_blank">
+                      {{ resource.name }}
+                    </a>
                   </div>
                   <div class="description">{{ resource.description|markdown|linebreaks }}</div>
                 {% endfor %} {% else %}

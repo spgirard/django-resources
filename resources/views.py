@@ -1,6 +1,5 @@
 ### resources app views
 
-
 from django.shortcuts import render
 #   bring in models
 from .models import Resource, Resource_Category
