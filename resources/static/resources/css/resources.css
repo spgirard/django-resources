@@ -10,12 +10,15 @@
   margin: 0;
   box-sizing: border-box;
   /* colors */
-  --page-bg: #000;
-  --category-bg: #bde0fe;
-  --highlight-bg: #a2d2ff;
-  --head-bg: #cdb4db;
-  --cat-head: #dec5ec;
-  --resource-bg: #ffafcc;
+  --page-bg: #1b232a;
+  --category-bg: #364655;
+  --highlight-bg: #516980;
+  --cat-head: #6c8caa;
+  --resource-bg: #87afd4;
+  --lt-bg: #bde0fe;
+
+
+  --head-bg: #87afd4;
   --description-bg: #ffc8dd;
   --light: white;
 
@@ -100,7 +103,7 @@ a {
 .resource-header {
   padding: 0.5rem;
   margin: 0;
-  background-color: var(--head-bg);
+  background-color: var(--highlight-bg);
   text-shadow: 1px 1px var(--light);
 }
 
@@ -130,7 +133,6 @@ a {
 .resource-item {
   margin: 0;
   padding: 0;
-  background-color: var();
 }
 
 .resource {
@@ -143,7 +145,7 @@ a {
 .description {
   padding: 1rem;
   font-size: 1rem;
-  background-color: var(--description-bg);
+  background-color: var(--lt-bg);
 }
 
 .no-resource {

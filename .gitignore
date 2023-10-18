@@ -1,7 +1,8 @@
 #   our app ignore
-vscode/
+
 devtemp/
 devnotes/
+vscode/
 .vscode/
 
 
